@@ -1,2 +1,2 @@
-project_id = "REPLACE_ME"
+project_id = "precise-clock-362521"
 region     = "us-central1"

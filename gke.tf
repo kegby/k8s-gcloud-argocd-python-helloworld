@@ -54,6 +54,20 @@ resource "google_container_node_pool" "primary_nodes" {
   }
 }
 
+resource "time_sleep" "wait_45_seconds" {
+  depends_on = [google_container_node_pool.primary_nodes, google_container_cluster.primary]
+  create_duration = "45s"
+}
+
+resource "null_resource" "example1" {
+  depends_on = [time_sleep.wait_45_seconds]
+  provisioner "local-exec" {
+    command = <<-EOT
+      chmod +x init-script.sh
+      ./init-script.sh
+    EOT
+  }
+}
 
 # # Kubernetes provider
 # # The Terraform Kubernetes Provider configuration below is used as a learning reference only. 
