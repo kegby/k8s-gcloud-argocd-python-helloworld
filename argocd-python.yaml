@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-python-helloworld/deployment.yaml
+    path: argocd-python-helloworld
     repoURL: https://github.com/kegby/k8s-gcloud-argocd-python-helloworld 
     targetRevision: HEAD
   syncPolicy: {}
